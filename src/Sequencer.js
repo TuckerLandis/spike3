@@ -1,16 +1,29 @@
 import { useState } from 'react';
 import * as Tone from 'tone'
+const scale = require('music-scale')
 
 function Sequencer() {
     // states for playing boolean and for playbutton text. these get flipped when pressing play or stop
     const [isPlaying, setIsPlaying] = useState(false)
     const [playButtonText, setPlayButtonText] = useState('play')
 
+ 
+    // const pentatonic = scale('1 2 3 5 6')
+    // console.log(pentatonic('E'));
+    
+    // notes on arrays of notes: if i have say 3 scales, i could make a function to produce a scale from a root note like this
+    // "notes array".
+    // switch case on root note, then produce 
+    
+    
+
 
     const c_major = ["off", "C4", "D4", "E4", "F4", "G4", "A4", "B4"]
+    const c_minor = ["off", "C4", "D4", "Eb4", "F4", "G4", "Ab4", "Bb4"]
+
 
     // state for scale. changed on handleScaleChange
-    const [scale, setScale] = useState(c_major)
+    const [scaleChoice, setScaleChoice] = useState(c_major)
 
 
 
@@ -105,8 +118,8 @@ function Sequencer() {
             <div>
 
                 <select name="selectOne" id="note-select-1" onChange={handleSelectOne}>
-                    {/* uses scale state to return a list of notes in selected scale */}
-                    {scale.map((note, i) => {
+                    {/* uses scaleChoice state to return a list of notes in selected scaleChoice */}
+                    {scaleChoice.map((note, i) => {
                         return (
                             <option key={i} value={note}>{note}</option>
                         )
@@ -114,8 +127,8 @@ function Sequencer() {
                 </select>
 
                 <select name="selectTwo" id="note-select-2" onChange={handleSelectTwo}>
-                    {/* uses scale state to return a list of notes in selected scale */}
-                    {scale.map((note, i) => {
+                    {/* uses scaleChoice state to return a list of notes in selected scaleChoice */}
+                    {scaleChoice.map((note, i) => {
                         return (
                             <option key={i} value={note}>{note}</option>
                         )
@@ -123,8 +136,8 @@ function Sequencer() {
                 </select>
 
                 <select name="selectThree" id="note-select-3" onChange={handleSelectThree}>
-                    {/* uses scale state to return a list of notes in selected scale */}
-                    {scale.map((note, i) => {
+                    {/* uses scaleChoice state to return a list of notes in selected scaleChoice */}
+                    {scaleChoice.map((note, i) => {
                         return (
                             <option key={i} value={note}>{note}</option>
                         )
@@ -132,8 +145,8 @@ function Sequencer() {
                 </select>
 
                 <select name="selectFour" id="note-select-4" onChange={handleSelectFour}>
-                    {/* uses scale state to return a list of notes in selected scale */}
-                    {scale.map((note, i) => {
+                    {/* uses scaleChoice state to return a list of notes in selected scaleChoice */}
+                    {scaleChoice.map((note, i) => {
                         return (
                             <option key={i} value={note}>{note}</option>
                         )
@@ -141,8 +154,8 @@ function Sequencer() {
                 </select>
 
                 <select name="selectFive" id="note-select-5" onChange={handleSelectFive}>
-                    {/* uses scale state to return a list of notes in selected scale */}
-                    {scale.map((note, i) => {
+                    {/* uses scaleChoice state to return a list of notes in selected scaleChoice */}
+                    {scaleChoice.map((note, i) => {
                         return (
                             <option key={i} value={note}>{note}</option>
                         )
@@ -150,8 +163,8 @@ function Sequencer() {
                 </select>
 
                 <select name="selectSix" id="note-select-6" onChange={handleSelectSix}>
-                    {/* uses scale state to return a list of notes in selected scale */}
-                    {scale.map((note, i) => {
+                    {/* uses scaleChoice state to return a list of notes in selected scaleChoice */}
+                    {scaleChoice.map((note, i) => {
                         return (
                             <option key={i} value={note}>{note}</option>
                         )
@@ -159,8 +172,8 @@ function Sequencer() {
                 </select>
 
                 <select name="selectSeven" id="note-select-7" onChange={handleSelectSeven}>
-                    {/* uses scale state to return a list of notes in selected scale */}
-                    {scale.map((note, i) => {
+                    {/* uses scaleChoice state to return a list of notes in selected scaleChoice */}
+                    {scaleChoice.map((note, i) => {
                         return (
                             <option key={i} value={note}>{note}</option>
                         )
@@ -168,8 +181,8 @@ function Sequencer() {
                 </select>
 
                 <select name="selectEight" id="note-select-8" onChange={handleSelectEight}>
-                    {/* uses scale state to return a list of notes in selected scale */}
-                    {scale.map((note, i) => {
+                    {/* uses scaleChoice state to return a list of notes in selected scaleChoice */}
+                    {scaleChoice.map((note, i) => {
                         return (
                             <option key={i} value={note}>{note}</option>
                         )
