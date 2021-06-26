@@ -7,58 +7,54 @@ function Sequencer () {
     const [playButtonText, setPlayButtonText] = useState('play')
 
 
+    const c_major = ["off", "C4", "D4", "E4", "F4", "G4", "A4", "B4"]
+
+    // state for scale. changed on handleScaleChange
+    const [scale, setScale] = useState(c_major)
+
+    
+
+    // state for each step in sequence
+    const [noteOne, setNoteOne] = useState(null)
+    const [noteTwo, setNoteTwo] = useState(null)
+    const [noteThree, setNoteThree] = useState(null)
+    const [noteFour, setNoteFour] = useState(null)
+    const [noteFive, setNoteFive] = useState(null)
+    const [noteSix, setNoteSix] = useState(null)
+    const [noteSeven, setNoteSeven] = useState(null)
+    const [noteEight, setNoteEight] = useState(null)
+
+
     // synth instantiation, will have .chain 
     const synth = new Tone.PolySynth().toDestination();
     synth.volume.value = -6;
 
-    const notes = [null, null, null, null, null, null, null, null]
+    let notes = [noteOne, noteTwo, noteThree, noteFour, noteFive, noteSix, noteSeven, noteEight]
 
+    // these handle the input -> state change of each note select below
    const handleSelectOne = (event) => {
-    notes[0] = event.target.value
-    console.log(notes);
-    
+    setNoteOne(event.target.value)
    }
-
    const handleSelectTwo = (event) => {
-    notes[1] = event.target.value
-    console.log(notes);
-    
+    setNoteTwo(event.target.value)
    }
-
    const handleSelectThree = (event) => {
-    notes[2] = event.target.value
-    console.log(notes);
-    
+    setNoteThree(event.target.value)
    }
-
    const handleSelectFour = (event) => {
-    notes[3] = event.target.value
-    console.log(notes);
-    
+    setNoteFour(event.target.value)
    }
-
    const handleSelectFive = (event) => {
-    notes[4] = event.target.value
-    console.log(notes);
-    
+    setNoteFive(event.target.value)
    }
-
    const handleSelectSix = (event) => {
-    notes[5] = event.target.value
-    console.log(notes);
-    
+    setNoteSix(event.target.value)
    }
-
    const handleSelectSeven = (event) => {
-    notes[6] = event.target.value
-    console.log(notes);
-    
+    setNoteSeven(event.target.value)
    }
-
    const handleSelectEight = (event) => {
-    notes[7] = event.target.value
-    console.log(notes);
-    
+    setNoteEight(event.target.value)
    }
 
 
@@ -67,6 +63,9 @@ function Sequencer () {
 
 
     const playButton = () => {
+
+        console.log(notes);
+        
 
 
         if (!isPlaying) {
@@ -102,7 +101,21 @@ function Sequencer () {
             <button onClick={playButton}>{playButtonText}</button>
             <div>
             <select name="selectOne" id="note-select-1" onChange={handleSelectOne}>
-                    <option value="off">off</option>
+                   
+
+                   {/* uses scale state to return a list of notes in selected scale */}
+                   {scale.map((note, i) => {
+                       return (
+                           <option key={i} value={note}>{note}</option>
+                       )
+                   })}
+                   
+                   
+                   
+                   
+                   
+                   
+                    {/* <option value="off">off</option>
                     <option value="A4">A4</option>
                     <option value="Bb4">Bb4</option>
                     <option value="B4">B4</option>
@@ -114,7 +127,7 @@ function Sequencer () {
                     <option value="F4">F4</option>
                     <option value="F#4">F#4</option>
                     <option value="G4">G4</option>
-                    <option value="Ab4">Ab4</option>
+                    <option value="Ab4">Ab4</option> */}
                 </select>
 
                 <select name="selectTwo" id="note-select-2" onChange={handleSelectTwo}>
