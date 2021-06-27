@@ -8,7 +8,7 @@ function Sequencer() {
     const [playButtonText, setPlayButtonText] = useState('play')
 
     //temp holder for scale name before it becomes scale choice
-    const [scaleName, setScaleName] = useState(major)
+    const [scaleName, setScaleName] = useState("major")
     
     const [octaveChoice, setOctave] = useState(4)
 
